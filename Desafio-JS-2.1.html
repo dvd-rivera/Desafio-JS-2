@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            background-color: antiquewhite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .border {
+            border: solid 2px red;
+        }
+        
+        img {
+            display: block;
+        }
+    </style>
+
+    
+
+
+</head>
+<body>
+
+    <div class="img-container" id="imgContainer">
+        <img id="img" src="https://picsum.photos/200/300?random=1">
+    </div>
+
+    <script defer>
+        let img = document.getElementById("img");
+        let container = document.getElementById("imgContainer")
+
+        img.addEventListener("click", () => {
+            container.classList.toggle("border")
+        })
+    </script>
+
+
+
+</body>
+</html>

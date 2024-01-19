@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+            background-color: antiquewhite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
+
+        .selects-container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .selects-container select {
+            width: 40px;
+            font-size: 24px;
+        }
+
+        .btn-container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 40px;
+        }
+    </style>
+
+    <h1>Ingresa la contraseña</h1>
+
+    <div class="selects-container">
+        <select name="sel1" id="sel1">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+        </select>
+        <select name="sel2" id="sel2">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+        </select>
+        <select name="sel3" id="sel3">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+        </select>
+        <div class="btn-container">
+            <button id="btn">Ingresar</button>
+        </div>
+        <p id="p">
+            Prueba
+        </p>
+    </div>
+
+    <script>
+        let sel1 = document.getElementById("sel1")
+        let sel2 = document.getElementById("sel2")
+        let sel3 = document.getElementById("sel3")
+        let btn = document.getElementById("btn")
+        let p = document.getElementById("p")
+
+        
+        btn.addEventListener("click", () => {
+            let pass = sel1.value + sel2.value + sel3.value
+            console.log(pass)
+            if (pass == "911") {
+                p.innerText = "password 1 correcto"
+            } else if (pass == "714") {
+                p.innerText = "password 2 correcto"
+            } else {
+                p.innerText = "password incorrecto"
+            }
+        })
+
+
+
+    </script>
+
+</body>
+</html>

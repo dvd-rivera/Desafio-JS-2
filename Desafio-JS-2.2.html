@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+     body {
+            width: 100%;
+            background-color: antiquewhite;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        h1 {
+            width: 100%;
+            text-align: center;
+        }
+
+        .border {
+            border: solid 2px red;
+        }
+        
+        img {
+            display: block;
+        }
+
+        .stickers-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .sticker-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .quantity-container {
+            width: 100%;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .overLoad {
+            color: red;
+            font-weight: 700;
+            font-size: 24px;
+        }
+
+        .loadOK {
+            color: green;
+            font-size: 24px;
+            font-weight: 700;
+        }
+</style>
+
+
+    
+</head>
+<body>
+    
+    <h1>Puedes llevar hasta 10 stickers en total</h1>
+
+    <div class="stickers-container">
+        <div class="sticker-container">
+            <img id="img1" src="https://picsum.photos/200/200?random=1">
+            <p>¿Cuantos de estos llevarás?</p>
+            <input type="number" id="input1" value="0">
+        </div>
+        <div class="sticker-container">
+            <img id="img2" src="https://picsum.photos/200/200?random=2">
+            <p>¿Cuantos de estos llevarás?</p>
+            <input type="number" id="input2" value="0">
+        </div>
+        <div class="sticker-container">
+            <img id="img3" src="https://picsum.photos/200/200?random=3">
+            <p>¿Cuantos de estos llevarás?</p>
+            <input type="number" id="input3" value="0">
+        </div>
+    </div>
+
+    <div class="quantity-container">
+        <p id="quantity">Agrega stickers</p>
+    </div>
+
+    <script defer>
+        let input1 = document.getElementById("input1")
+        let input2 = document.getElementById("input2")
+        let input3 = document.getElementById("input3")
+
+        let inputs = [input1, input2, input3]
+
+        let total = Number(input1.value) + Number(input2.value) + Number(input3.value)
+
+
+        inputs.forEach((input) => {
+            input.addEventListener("change", () => {
+                total = Number(input1.value) + Number(input2.value) + Number(input3.value)
+                if (total < 10) {
+                    p.innerText = "Llevas " + total + " Stickers"
+                    p.classList.remove("overLoad")
+                    p.classList.remove("loadOK")
+                } else if (total == 10) {
+                    p.innerText = "Ya tienes seleccionado tus " + total + " Stickers"
+                    p.classList.add("loadOK")
+                }  else { 
+                    p.classList.add("overLoad")
+                    p.classList.remove("loadOK")
+                    p.innerText = "Llevas " + total + " Stickers, y solo puedes seleccionar hasta 10"
+                }
+
+                if (input.value < 0) {
+                    input.value = 0
+                    total = 0
+                    p.innerText = "Agrega Stickers"
+                }
+            })
+        })
+
+        let p = document.getElementById("quantity")
+
+
+    </script>
+
+</body>
+</html>
